@@ -36,10 +36,10 @@ python scripts/inverse_kinematics.py
 Note that the tracking is done by purely teleporting the joint positions to the output from IK; there is still no control involved.
 
 ### Theoretical questions
-1. If you increase the width of the Lemniscate (increasing a), what issue can happen with the robot performing IK?
-2. What can happen if you change the dt parameter in IK?
-3. We implemented a simple numerical IK solver. What are the advantages and disadvantages compared to an analytical IK solver?
-4. What are the limits of our IK solver compared to state-of-the-art IK solvers?
+1. If you increase the width of the Lemniscate (increasing a), what issue can happen with the robot performing IK? Robot doesn't reach any point, thus error will never decrease and IK doesn't converge.
+2. What can happen if you change the dt parameter in IK? You can also affect convergence. If dt is too big, it can get lose in the optimization, the same way if dt is too small, it will take more steps to converge.
+3. We implemented a simple numerical IK solver. What are the advantages and disadvantages compared to an analytical IK solver? Analytical solvers are faster since they do not iterate to find the solution, however numerical solvers can adapt to any robot without big changes. 
+4. What are the limits of our IK solver compared to state-of-the-art IK solvers? Our IK solver might have issues with convergence, in addition, since it doesn't take into account smoothness, or joint collisions,it can generate wrong trajectories or shaky motions.
 
 The theoretical questions require only short and direct answers. Each question is expected to have a 1-sentence answer.
 
