@@ -128,9 +128,9 @@ A viewer window should pop up showing the robot smoothly moving between several 
 ### Theoretical questions
 To get a feeling for the choice of the PID gains, you will analyze how their choice influences the behavior of the waypoint tracking. 
 Test different settings of the gains to be able to answer the following:
-1. If you keep increasing $K_P$, what issue arises when tracking the waypoints?
-2. How does $K_D$ mitigate the effect you saw above when increasing $K_P$?
-3. In what scenarios is a non-zero $K_I$ needed for the controller to perform well?
+1. If you keep increasing $K_P$, what issue arises when tracking the waypoints? If Kp continues increasing, the system will be unstable oscillations making the robot unable to track the waypoints.
+2. How does $K_D$ mitigate the effect you saw above when increasing $K_P$? Kd acts as a damping term that responds to the rate of error change, counteracting overshooting caused by the high kp.
+3. In what scenarios is a non-zero $K_I$ needed for the controller to perform well? When there is a persistent error or constant external disturbance such as friction, or gravity, preventing the system from reaching the exact waypoint. 
 
 There is no need to show these behavior changes in the video and you can just write down your answers in the video. Or say them out loud.
 The theoretical questions require only short and direct answers. Each question is expected to have a 1-sentence answer.
